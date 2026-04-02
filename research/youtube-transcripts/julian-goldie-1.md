@@ -256,5 +256,3 @@ The video mentions a community and training system for AI automation, including 
 
 Claude computer use represents a major shift toward AI agents that can fully operate computers and automate workflows end-to-end.
 
-
-
