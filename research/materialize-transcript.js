@@ -8,11 +8,14 @@ const path = require("path");
 const inbox = process.argv[2];
 const out = process.argv[3];
 if (!inbox || !out) {
-  console.error("Usage: node materialize-transcript.js <inbox.txt> <out.md>");
+  console.error("Usage: node materialize-transcript.js <inbox.txt|- > <out.md>  (use - for stdin)");
   process.exit(1);
 }
 
-const raw = fs.readFileSync(inbox, "utf8");
+const raw =
+  inbox === "-"
+    ? fs.readFileSync(0, "utf8")
+    : fs.readFileSync(inbox, "utf8");
 const cleaned = raw
   .split(/\r?\n/)
   .map((line) => {
